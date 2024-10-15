@@ -1,0 +1,7 @@
+{
+  "name": "auth-appqrv5",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
