@@ -1,0 +1,43 @@
+<ion-header>
+  <ion-toolbar>
+    <app-volver-boton></app-volver-boton>
+    <ion-title>Crear Clase</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <h4 class="text-center">Ingrese el nombre de la asignatura</h4>
+  <ion-item>
+    <ion-label position="floating">Nombre de la Clase</ion-label>
+    <ion-input [(ngModel)]="className"></ion-input>
+  </ion-item>
+  
+  <!-- Botón para crear la clase con animación de salto y bordes redondeados -->
+  <br>
+  <ion-button class="bouncing-button"  (click)="createClass()">Crear Clase</ion-button>
+
+  <!-- Contenedor para el código QR -->
+  <div *ngIf="qrCodeUrl" class="qr-container">
+    <img [src]="qrCodeUrl" alt="QR Code">
+  </div>
+  
+  <!-- Mostrar el classID si está disponible -->
+  <div *ngIf="classID" class="text-center">
+    <strong>ID de la Clase:</strong> {{ classID }}
+  </div>
+
+  <!-- Sección de Clases Pasadas -->
+  <h1 class="text-center">Clases pasadas</h1>
+  <ion-list>
+    <ion-item *ngFor="let class of classes">
+      <ion-label>
+        <h2>{{ class.name }}</h2>
+        <p>Creada el: {{ class.createdAt | date:'medium' }}</p>
+      </ion-label>
+      <!-- Botón para ver los asistentes filtrados por ID de clase -->
+      <ion-button color="warning" (click)="viewAttendances(class.id)">Ver Asistentes</ion-button>
+      <!-- Botón para generar/regenerar el QR -->
+      <ion-button class="pulse-button" (click)="generateQRCode(class.id)">Generar QR</ion-button>
+    </ion-item>
+  </ion-list>
+</ion-content>

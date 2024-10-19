@@ -1,0 +1,41 @@
+<!-- src/app/pages/create-class/create-class.page.html -->
+<ion-header>
+  <ion-toolbar>
+    <app-volver-boton></app-volver-boton>
+  
+
+    <ion-title>Crear Clase</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <h4 class="text-center">Ingrese el nombre de la asignatura</h4>
+  <ion-item>
+    <ion-label position="floating">Nombre de la Clase</ion-label>
+    <ion-input [(ngModel)]="className"></ion-input>
+  </ion-item>
+  <ion-button color="warning" expand="full" (click)="createClass()">Crear Clase</ion-button>
+
+
+
+  <div class="parent-container" *ngIf="qrCodeUrl" >
+    <div class="qrcontainer" >
+        <img [src]="qrCodeUrl" alt="QR Code">
+    </div>
+  </div>
+  <!-- Mostrar el classID -->
+  <div *ngIf="classID">
+    ID de la Clase: {{ classID }}
+  </div>
+  <h1 class="text-center">Clases pasadas</h1>
+    <ion-list>
+    <ion-item *ngFor="let class of classes">
+      <ion-label>
+        <h2>{{ class.name }}</h2>
+        <h2></h2>
+        <p>Creada el: {{ class.createdAt | date:'medium' }}</p>
+      </ion-label>
+      <ion-button color="warning" (click)="viewAttendances(class.id)">Ver Asistentes</ion-button>
+    </ion-item>
+  </ion-list>
+</ion-content>

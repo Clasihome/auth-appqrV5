@@ -4,13 +4,41 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: 'home',
-    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
+    loadChildren: () => import('./home/home.module').then(m => m.HomePageModule)
   },
   {
     path: '',
-    redirectTo: 'home',
+    redirectTo: 'login',
     pathMatch: 'full'
   },
+  {
+    path: 'login',
+    loadChildren: () => import('./pages/login/login.module').then(m => m.LoginPageModule)
+  },
+  {
+    path: 'selector',
+    loadChildren: () => import('./pages/selector/selector.module').then(m => m.SelectorPageModule)
+  },
+  {
+    path: 'scan',
+    loadChildren: () => import('./pages/scan/scan.module').then(m => m.ScanPageModule)
+  },
+  {
+    path: 'create-class',
+    loadChildren: () => import('./pages/create-class/create-class.module').then(m => m.CreateClassPageModule)
+  },
+  {
+    path: 'asistentes',
+    loadChildren: () => import('./pages/asistentes/asistentes.module').then(m => m.AsistentesPageModule)
+  },
+  {
+    path: 'rickymorty',
+    loadChildren: () => import('./pages/rickymorty/rickymorty.module').then(m => m.RickymortyPageModule)
+  },
+  {
+    path: 'character-detail/:id',
+    loadChildren: () => import('./character-detail/character-detail.module').then(m => m.CharacterDetailPageModule)
+  }
 ];
 
 @NgModule({

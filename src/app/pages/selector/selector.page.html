@@ -1,0 +1,44 @@
+<ion-header>
+  <ion-toolbar>
+ 
+    <ion-buttons slot="end">
+      <ion-button class="small-button" color="danger" (click)="logout()">Cerrar sesión
+        <ion-icon name="log-out-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<h3 class="center-title">¡Bienvenido!</h3>
+
+<ion-content class="custom-content">
+
+  <!-- Logo que ocupa el 30% de la pantalla -->
+  <div class="logo-container">
+    <img src="{{componente.img}}" alt="Logo">
+  </div>
+
+  <!-- Botones que ocupan el 70% restante de la pantalla -->
+  <ion-grid class="button-grid">
+    <ion-row class="button-row">
+      <ion-col>
+        <ion-button class="full-height-button" color="warning" expand="block" (click)="navigateToScan()">Alumno</ion-button>
+      </ion-col>
+    </ion-row>
+    <ion-row class="button-row">
+      <ion-col>
+        <ion-button class="full-height-button" color="warning" expand="block" (click)="navigateToCreateClass()">Docente</ion-button>
+      </ion-col>
+    </ion-row>
+    <ion-row class="button-row">
+      <ion-col>
+        <ion-button class="full-height-button" color="warning" expand="block" (click)="navigateToRickyMory()">Ir a Rick y Morty API</ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <!-- Animación de la bolita saltando -->
+  <div class="ball-container">
+    <div class="bouncing-ball"></div>
+  </div>
+</ion-content>

@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-toolbar>
+    <app-volver-boton></app-volver-boton>
+    <ion-title>Asistentes</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item *ngFor="let attendance of attendances">
+      <ion-row>
+        <ion-col size="12">
+          <ion-button (click)="consultarAsistencias()" class="submit" expand="block">
+            Ver asistencias de esta clase
+            <ion-icon slot="end" name="search-outline"></ion-icon>
+          </ion-button>
+        </ion-col>
+      </ion-row>
+      <ion-label>
+        <h2>Email: {{ attendance.email }}</h2>
+        <p>{{ attendance.fecha | date: 'short' }}</p>
+        
+      </ion-label>
+    </ion-item>
+  </ion-list>
+
+  <ion-footer *ngIf="attendances.length === 0">
+    <ion-toolbar>
+      <ion-title>No se encontraron registros de asistencia.</ion-title>
+    </ion-toolbar>
+  </ion-footer>
+</ion-content>

@@ -1,0 +1,56 @@
+ion-card {
+    transition: transform 0.2s ease-in-out;
+  }
+  
+  @keyframes float {
+    0% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-5px);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+  
+  .animated-card {
+    animation: float 3s ease-in-out infinite;
+  }
+  
+  .zoomed ion-img {
+    transform: scale(1.5); /* Zoom al 50% */
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  ion-img {
+    transition: transform 0.3s ease-in-out;
+  }
+  .pagination-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    margin: 0 auto;
+    background-color: transparent;
+  }
+  
+  .pagination-container ion-button {
+    --background: transparent; /* Fondo transparente */
+    --color: #FFB800; /* Color de texto predeterminado */
+    width: 34px;
+    height: 34px; 
+    padding: 0; /* Sin padding */
+    font-weight: bold;
+    font-size: 16px;
+    border: none;
+  }
+  
+  .pagination-container ion-button.active-page {
+    --background: transparent; /* Fondo transparente para botón activo */
+    --color: #ffffff; /* Texto blanco para botón activo */
+    border: 2px solid #FFB800; /* Borde dorado */
+    border-radius: 30%; /* Redondeado para círculo perfecto */
+    width: 34px;
+    height: 34px;
+  }

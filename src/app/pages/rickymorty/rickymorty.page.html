@@ -1,0 +1,78 @@
+<ion-header>
+  <ion-toolbar>
+    <app-volver-boton></app-volver-boton>
+    <ion-title>Rick and Morty Characters</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <!-- Botones de navegación en la parte superior con números de páginas centrados -->
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button color="warning" (click)="previousPage()" [disabled]="currentPage === 1">
+        Anterior
+      </ion-button>
+    </ion-buttons>
+
+    <!-- Botones de páginas numéricas centrados y estilizados -->
+    <div class="pagination-container">
+      <ion-button 
+        *ngFor="let page of getVisiblePages()" 
+        (click)="goToPage(page)"
+        [ngClass]="{ 'active-page': page === currentPage }">
+        {{ page }}
+      </ion-button>
+    </div>
+
+    <ion-buttons slot="end">
+      <ion-button color="warning" (click)="nextPage()" [disabled]="currentPage === totalPages">
+        Siguiente
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+
+  <!-- Lista de personajes -->
+  <ion-grid>
+    <ion-row>
+      <ion-col size="6" *ngFor="let character of characters">
+        <ion-card class="animated-card" [class.zoomed]="zoomedCharacterId === character.id" (click)="viewCharacterDetail(character.id)">
+          <ion-img [src]="character.image"></ion-img>
+          <ion-card-header>
+            <ion-card-title>{{ character.name }}</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <p>Estado: {{ character.status }}</p>
+            <p>Especie: {{ character.species }}</p>
+            <p>Origen: {{ character.origin.name }}</p>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button color="warning" (click)="previousPage()" [disabled]="currentPage === 1">
+        Anterior
+      </ion-button>
+    </ion-buttons>
+
+    <!-- Botones de páginas numéricas centrados y estilizados en el pie de página -->
+    <div class="pagination-container">
+      <ion-button 
+        *ngFor="let page of getVisiblePages()" 
+        (click)="goToPage(page)"
+        [ngClass]="{ 'active-page': page === currentPage }">
+        {{ page }}
+      </ion-button>
+    </div>
+
+    <ion-buttons slot="end">
+      <ion-button color="warning" (click)="nextPage()" [disabled]="currentPage === totalPages">
+        Siguiente
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-footer>

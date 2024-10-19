@@ -1,0 +1,17 @@
+<ion-header>
+  <ion-toolbar>
+    <app-volver-boton></app-volver-boton>
+    <ion-title>{{ className }}</ion-title> <!-- Título dinámico con el nombre de la clase -->
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item *ngFor="let attendance of attendances">
+      <ion-label>
+        Email: {{ attendance.email }} <br>
+        Fecha: {{ attendance.fecha | date: 'medium' }}
+      </ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>

@@ -1,0 +1,101 @@
+.custom-content {
+    --padding-top: 0;
+    --padding-bottom: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    height: 100vh;
+  }
+  
+  .logo-container {
+    height: 20vh; /* 30% de la pantalla */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .logo-container img {
+    max-height: 100%; /* La imagen ocupa todo el espacio de la caja */
+    max-width: 80%; /* Ajusta el ancho si es necesario */
+  }
+  
+  .button-grid {
+    height: 40vh; /* 70% de la pantalla para los botones */
+    width: 100%;
+    display: flex;
+    margin-left:40px;
+    flex-direction: column;
+    justify-content: space-evenly;
+  }
+  
+  .button-row {
+    height: 30%; /* Cada fila ocupa un 30% del espacio de los botones */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .full-height-button {
+    height: 100%; /* Botón que ocupa el 100% de la fila */
+    width: 80%; /* Opcional: ajusta el ancho del botón */
+    font-size: 1.2em;
+  }
+  .ball-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 20vh; /* Ajusta según la altura que desees para el contenedor */
+  }
+  
+  .bouncing-ball {
+    width: 40px;
+    height: 40px;
+    background-color: #FFB800; /* Color amarillo */
+    border-radius: 50%; /* Hace que la bola sea redonda */
+    position: relative;
+    animation: bounce 1s ease-in-out infinite;
+  }
+  
+  @keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+      transform: translateY(0); /* Posición inicial */
+    }
+    40% {
+      transform: translateY(-30px); /* Salto hacia arriba */
+    }
+    60% {
+      transform: translateY(-15px); /* Rebote hacia abajo */
+    }
+  }
+  ion-button[color="danger"] {
+    --background: #FF3B30; /* Color de fondo rojo */
+    --color: #ffffff; /* Color del texto en blanco */
+    --border-radius: 8px; /* Bordes redondeados */
+    padding: 0 12px;
+  }
+  
+  ion-button[color="danger"]:hover {
+    --background: #FF5E57; /* Color de fondo al pasar el ratón */
+  }
+  .small-button {
+    --padding-start: 4px;
+    --padding-end: 4px;
+    --padding-top: 2px;
+    --padding-bottom: 2px;
+    --border-radius: 5px;
+    --font-size: 12px; /* Tamaño de fuente más pequeño */
+
+  }
+  
+  .small-button ion-icon {
+    font-size: 20px; /* Tamaño del icono más pequeño */
+    margin-right: 4px;
+  }
+  .center-title {
+    text-align: center; /* Asegura que el texto esté centrado */
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }

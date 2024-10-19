@@ -1,0 +1,67 @@
+.bouncing-button {
+  --background: #FFB800; /* Color de fondo personalizado */
+  --color: #ffffff; /* Color del texto */
+  --border-radius: 15px; /* Bordes redondeados */
+  font-weight: bold;
+  transition: transform 0.2s ease-in-out;
+  animation: bounce 2s infinite;
+
+  /* Ajustes para el ancho y el aspecto general del botón */
+  padding: 0;
+  width: 90%;
+  margin-left:5%;
+  height: 50px;
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0); /* Posición inicial y final */
+  }
+  40% {
+    transform: translateY(-8px); /* Salto hacia arriba */
+  }
+  60% {
+    transform: translateY(-4px); /* Rebote hacia abajo */
+  }
+}
+
+.qr-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 15px; /* Bordes redondeados */
+  background-color: #f9f9f9; /* Fondo claro */
+  padding: 20px;
+  max-width: 200px; /* Ancho máximo para el QR */
+  margin: 20px auto; /* Centramos el contenedor */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra */
+}
+
+.qr-container img {
+  border-radius: 10px; /* Bordes redondeados en la imagen del QR */
+  width: 100%; /* Ajusta la imagen al tamaño del contenedor */
+  height: auto;
+}
+
+.pulse-button {
+  --background: #FFB800; /* Mismo color que el botón "Crear Clase" */
+  --color: #ffffff;
+  --border-radius: 15px;
+  font-weight: bold;
+  transition: transform 0.2s ease-in-out;
+  animation: pulse 1.5s infinite; /* Animación de pulso */
+}
+
+/* Animación de pulso */
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1); /* Tamaño normal */
+  }
+  50% {
+    transform: scale(1.05); /* Expansión */
+  }
+}
+
+.text-center {
+  text-align: center;
+}

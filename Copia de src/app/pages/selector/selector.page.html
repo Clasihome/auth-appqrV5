@@ -1,0 +1,27 @@
+<ion-header>
+  <!-- Incluyendo el componente de volver -->
+  <ion-toolbar>
+    <app-volver-boton></app-volver-boton>
+    <ion-title>Selector</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <img src="{{componente.img}}" alt="">
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-button color="warning" expand="full" (click)="navigateToScan()">Ir a Scan</ion-button>
+      </ion-col>
+      <ion-col>
+        <ion-button color="warning" expand="full" (click)="navigateToCreateClass()">Ir a Create Class</ion-button>
+      </ion-col>
+      <ion-col>
+        <ion-button color="warning" expand="full" (click)="navigateToRickyMory()">Ir a Rick y Morty Api</ion-button>
+      </ion-col>
+    </ion-row>
+
+
+  </ion-grid>
+  
+</ion-content>

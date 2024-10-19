@@ -1,0 +1,79 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <app-volver-boton></app-volver-boton>
+    <ion-title>Scan</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Escaneo de Clase</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <div class="segment">
+    <div class="segment-content">
+     
+      <h6 class="scan-label">Escanee un QR</h6>
+
+      <ion-row>
+        <ion-col size="12">
+          <ion-button (click)="startScan()" class="submit" expand="block">
+            Scan
+            <ion-icon slot="end" name="scan-outline"></ion-icon>
+          </ion-button>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col size="12">
+          <ion-button (click)="consultarAsistencias()" class="submit" expand="block">
+            Ver asistencias de esta clase
+            <ion-icon slot="end" name="search-outline"></ion-icon>
+          </ion-button>
+        </ion-col>
+      </ion-row>
+
+      <ion-item class="result" *ngIf="scanResult" lines="none"> 
+        <ion-label>
+          <p>Scan Result</p>
+          <div>{{scanResult}}</div>
+        </ion-label>
+      </ion-item>
+
+      <ion-row>
+        <ion-col size="12" *ngIf="scanResult">
+          <ion-button (click)="registrarAsistencia(scanResult)" class="submit" expand="block">
+            Registrar Asistencia
+            <ion-icon slot="end" name="checkmark-outline"></ion-icon>
+          </ion-button>
+          
+        </ion-col>
+      </ion-row>
+
+      <div class="text-center">
+        <ion-list *ngIf="asistencias.length > 0">
+          <ion-item *ngFor="let asistencia of asistencias">
+            <ion-label>
+              <p>Email: {{ asistencia.email }}</p>
+              <p>Fecha: {{ asistencia.fecha | date: 'short' }}</p> <!-- Formato de fecha -->
+            </ion-label>
+          </ion-item>
+        </ion-list>
+      </div>
+      <h1 class="text-center">Clases pasadas</h1>
+      <ion-list>
+      <ion-item *ngFor="let class of classes">
+        <ion-label>
+          <h2>{{ class.name }}</h2>
+          <h2></h2>
+          <p>Creada el: {{ class.createdAt | date:'medium' }}</p>
+        </ion-label>
+      </ion-item>
+    </ion-list>
+
+     
+    </div>
+  </div>
+</ion-content>
